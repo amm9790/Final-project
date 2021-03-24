@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Make your collage</title>
+        <style>
+          body {
+  background-color: coral;
+}
+          .center {
+            margin: auto;
+            width: 60%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size:100px;
+            padding: 10px;
+            text-align:center;
+          }
+
+          .center1 {
+            margin: auto;
+            width: 60%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size:20px;
+            padding: 10px;
+            text-align:center;
+          }
+          </style>
+    </head>
+    <body>
+      <div class="center">Make your collage</div>
+      <div class="center1">
+        <form method="POST" action="/formdata" enctype="multipart/form-data">
+        Choose your photo&nbsp;<input type="file" name="photo" ><br/><br/>
+        <label for="data"> Enter Title for your Collage :&nbsp;</label>
+        <input type="text" name="data" value="Enter Text">
+        &nbsp;&nbsp;Size&nbsp;<input type="number" name="age" id="age" min="1" max="100" step="3" >
+        &nbsp;&nbsp;Color&nbsp;<input type="color" name="color"><br/><br/> 
+        Write what in your mind <br/> 
+        <textarea name="longtext" cols="80" rows="10"></textarea>
+        <br/>
+        <input type="submit" name="submit" value="Submit">
+    
+    </form>
+  </div>
+  
+</body>
+</html>
