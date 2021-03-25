@@ -12,6 +12,15 @@
 <marquee direction='down' width='100%' height='100%' behavior='alternate' style='border:0; position: absolute;'><marquee behavior='alternate'><img src="/uploads/<%= data.file.filename %>">
 </marquee>
 </marquee>
+
+<marquee direction='down' width='100%' height='100%' behavior='alternate' style='border:0; position: absolute;'><marquee behavior='alternate'><video width="720" height="480" controls>
+	<source src="/uploads/<%= data.video.filename %>" type="video/mp4" autoplay loop>
+	
+	Your browser does not support the video tag.
+</video>
+</marquee>
+</marquee>
+
 <marquee direction='down' width='100%' height='100%' behavior='alternate' style='border:0; position: absolute;'><marquee behavior='alternate'><p style="color: <%= data.color %>; font-size: <%= data.number %>px">
     <%= data.longtext %>
 </p> </marquee>
