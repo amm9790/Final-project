@@ -44,13 +44,15 @@ app.get('/search', function(req, res){
     })
 });
 
-app.post('/formdata', upload.single('photo'), function(req, res){
-    console.log(req.file);
-if (req.file.mimetype == "image/jpeg" || req.file.mimetype == "image/png"){
+app.post('/formdata', upload.fields([{name: 'photo'}, {name: 'video'}]), function(req, res){
+    console.log(req.files);
+    
+if (req.files.video[0].mimetype == "video/mp4" && (req.files.photo[0].mimetype == "image/jpeg" || req.files.photo[0].mimetype == "image/png")){
     console.log(req.body.data);
 
 var dataToSave = {
-    file: req.file,
+    file: req.files.photo[0],
+    video: req.files.video[0],
     text: req.body.data,
     number: req.body.age,
     color: req.body.color,
@@ -66,18 +68,18 @@ db.insert(dataToSave, function (err, newDoc) {
       });
   });
 }
-else{
-    fs.unlink(req.file.path, function(err){
-        if(err) {
+// else{
+//     fs.unlink(req.files.path, function(err){
+//         if(err) {
             
-            console.log  (err);
-        } else{
-        console.log(req.file.path + 'was deleted');
-        }
-    });
+//             console.log  (err);
+//         } else{
+//         console.log(req.files.path + 'was deleted');
+//         }
+//     });
     
-    res.send("Not an image file");
-}
+//     res.send("Not an image file");
+// }
 });
 
     app.listen(80, function (){
